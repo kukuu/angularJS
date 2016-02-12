@@ -1,0 +1,11 @@
+Instead of using template URL
+Resource: https://docs.angularjs.org/api/ng/directive/ngBindHtml
+You can bind it using ng-bind-html 
+And then inject the html via a script (see script.js) from within the controller.
+By so doing you can test the html string
+In Protractor (see protractor.js)
+
+	
+https://docs.angularjs.org/api/ng/directive/ngBindTemplate
+
+The ngBindTemplate directive specifies that the element text content should be replaced with the interpolation of the template in the ngBindTemplate attribute. Unlike ngBind, the ngBindTemplate can contain multiple {{ }} expressions. This directive is needed since some HTML elements (such as TITLE and OPTION) cannot contain SPAN elements.

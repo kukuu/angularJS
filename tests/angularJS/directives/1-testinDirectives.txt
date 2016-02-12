@@ -1,0 +1,14 @@
+Unit Testing Directive
+...................................
+Steps Involved in Testing a Directive
+
+At its core, there are a few key steps (some of which parallel the unit tests for our controllers) that you can use as a checklist when writing unit tests for a directive:
+
+    Get the $compile service injected into the unit test.
+    Create the HTML element that will trigger the directive you have created.
+    Create the scope against which you want the directive to be tested again.
+    Remember that there is no server in the unit test. If the directive loads a template using the templateUrl key, add an expectation on $httpBackend for loading the templateUrl and designate the HTML that’s to be used instead of the template in the test.
+    Compile the HTML element using the $compile service with the scope you’ve created.
+    Write expectations on how the directive should be rendered and on the functions that are defined in the link function. 
+
+The first five tests are going to be standard for any unit test we write for a directive. Only the last two—where we start testing the rendering and business logic encapsulated in a directive—change from one directive to another.

@@ -1,0 +1,9 @@
+In this example, Steps 1 through 5 are exactly the same as the previous example. What changes are Step 6 and the newly added Step 7 (which is really just an extended Step 6, because it adds more expectations on the functionality):
+
+Step 6
+    We ask for the isolated scope of the element we’re working with. This is different from element.scope(), which would give us the parent scope if called on an element with a directive. We then check if the directive has the correct stock data on its own scope. We also check if the getChange function defined in the directive works as expected. 
+
+Step 7
+    The last thing we test is the function callback. We have a variable defined in our test, which is initially set to empty. We use this as a log of what happened in the test. We then trigger the directive’s onSelect function (we could have also triggered it through the UI, if our rendered HTML had a button). This should trigger the scope userClick function, which sets the string variable. We then check if it is called with the right values after the function is triggered. 
+
+In this way, we can test the behavior of our directive, and ensure that it is performing the correct things given the right inputs and conditions.

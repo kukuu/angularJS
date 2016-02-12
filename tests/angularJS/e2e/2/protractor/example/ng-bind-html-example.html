@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Example</title>
+  
+
+  <script src="lib/angular.min.js"></script>
+  <script src="lib/angular-sanitize.js"></script>
+  <script src="js/script.js"></script>
+    
+</head>
+<body ng-app="bindHtmlExample">
+  <div ng-controller="ExampleController">
+ 	<p ng-bind-html="myHTML"></p>
+  </div>
+</body>
+</html>

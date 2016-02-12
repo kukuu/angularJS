@@ -1,0 +1,21 @@
+ Step 1
+    The very first thing we do is inject all the necessary services to create and test our directive in beforeEach. This includes $compile, which is necessary to create instances of our directive; $rootScope to be able to create scopes to test our directives against; and the $httpBackend, to simulate and handle the server call to load the template. 
+
+Step 2
+    We set up scope against which we will create our directive instance. This is similar to the controller, which will have our data. We create the stock instance myStock as well as a title variable on this scope. 
+
+Step 3
+    Because our directive loads the template by URL, and because there is no server in a unit test, we have to set expectations in $httpBackend on what server template will be loaded and what its content will be. Because it is a unit test, we just give it some dummy HTML that can be used to test element rendering and data accuracy. 
+
+Step 4
+    We create an instance of the directive. We first compile the HTML that triggered our directive. This returns a compiled function, which we then call with scope to compile it against. 
+
+Step 5
+    We digest the scope and flush the server requests. This is done to tell AngularJS to update all the bindings in the HTML and ensures that the HTML that we specified in the $httpBackend call gets loaded and rendered to write the rest of our test. We dig into the $digest cycle in more detail in The Digest Cycle. 
+
+Step 6
+    At this point, we have a fully instantiated version of our directive. Here, we write the expectations and tests for rendering to see if the data was picked up from the scope correctly and that the HTML attributes were correctly passing along the data. 
+
+To run these tests, execute karma start from the folder containing the directive and the unit test. The karma.conf.js file remains the same as before.
+
+Next, let’s see how we might test the business logic and behavior of a directive. We use the same setup and naming convention from before, but focus our tests on the functions added to the scope instead of the HTML:

@@ -1,0 +1,56 @@
+<html lang="en">
+  <head>
+    <title>BAT 2.0 / nav</title>
+  	<link rel="stylesheet" href="vendor/qunit/qunit.css" type="text/css" media="screen">
+  </head>
+  <body>
+
+	<!--<p>
+		<a href="./">&laquo; Test suite index</a>
+	</p>-->
+
+	<h1 id="qunit-header">BAT 2.0 / nav</h1>
+    <h2 id="qunit-banner"></h2>
+    <h2 id="qunit-userAgent"></h2>
+    <ol id="qunit-tests"></ol>
+
+	<script type="text/javascript">
+		var curl = {
+			baseUrl: '../',
+			paths: {
+				curl: 'vendor/curl/curl'
+			},
+			apiName: 'require',
+			pluginPath: 'vendor/curl/curl/plugin'
+		};
+	</script>
+
+    <script type="text/javascript" src="../vendor/curl/curl.min.js"></script>
+    <!--script type="text/javascript" src="vendor/requirejs/require.js"></script-->
+    <script src="vendor/qunit/qunit.js"></script>
+    <script src="vendor/qunit/qunit_helper.js"></script>
+    <script type="text/javascript">
+		QUnit.config.autostart = false; // stop the tests until require has loaded the dependencies
+        // load a module
+        require(["tests/tests/nav", "domReady!"], // a list of test cases to run
+        function() {
+            console.log('loaded tests');
+            QUnit.start(); // start the tests
+        });
+
+
+	</script>
+
+    <a id="nav-button" href="#site-nav"><span class="cta">Menu</span></a>
+
+    <div id="site-nav-panel"><div class="dropdown"></div></div>
+
+    <div id="site-nav">
+		<h2>Explore BAT 2.0</h2>
+		<ul>
+			<li><a href="index.html"><span class="cta">Home</span></a></li>
+		</ul>
+	</div>
+  </body>
+</html>
+

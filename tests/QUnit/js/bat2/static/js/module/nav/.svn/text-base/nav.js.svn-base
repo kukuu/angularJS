@@ -1,0 +1,48 @@
+/*jshint expr:true */
+define(["module/bootstrap", "module/nav/navView"], function (news, navView) {
+    
+    // model - var n = new nav();
+    var nav = function(){
+    
+        var view = new navView();
+    
+        var state = false; // true = on, false = off
+        
+        news.pubsub.on('nav:open', function(){
+            state = true;
+            view.open();
+        });
+        
+        news.pubsub.on('nav:close', function(){
+            state = false;
+            view.close();
+        });
+        
+        news.pubsub.on('nav:toggle', function(){
+            (state) ? news.pubsub.emit('nav:close') : news.pubsub.emit('nav:open');
+        });
+        
+        news.pubsub.on('tabs:click', function() {
+            news.pubsub.emit('nav:close');
+        });
+        
+    };
+    
+    nav.prototype.open = function() {
+        news.pubsub.emit('nav:open');
+    };
+    
+    nav.prototype.close = function() {
+        news.pubsub.emit('nav:close');
+    };
+    
+    nav.prototype.toggle = function() {
+        news.pubsub.emit('nav:toggle');
+    };
+    
+    return nav;
+    
+});
+    
+
+
